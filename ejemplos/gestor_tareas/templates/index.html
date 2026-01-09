@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Tareas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestor de Tareas</h1>
+
+        <form action="/agregar" method="post">
+            <div class="form-group">
+                <input type="text" name="texto_tarea" placeholder="Nueva tarea" required>
+                <button type="submit">Añadir</button>
+            </div>
+        </form>
+
+        <ul>
+            {% for tarea in tareas %}
+                <li>
+                    {% if tarea['completada'] %}
+                        <s>{{ tarea['texto'] }}</s>
+                        <div class="task-actions">
+                            <form action="/eliminar/{{ tarea['id'] }}" method="post" class="task-form">
+                                <button type="submit" class="btn-delete">Eliminar</button>
+                            </form>
+                        </div>
+                    {% else %}
+                        <span class="task-text">{{ tarea['texto'] }}</span>
+                        <div class="task-actions">
+                            <form action="/completar/{{ tarea['id'] }}" method="post" class="task-form">
+                                <button type="submit" class="btn-complete">Completar</button>
+                            </form>
+                            <form action="/editar/{{ tarea['id'] }}" method="post" class="task-form task-form-edit">
+                                <input type="text" name="texto_editado" value="{{ tarea['texto'] }}" class="edit-input" required>
+                                <button type="submit" class="btn-edit">Editar</button>
+                            </form>
+                            <form action="/eliminar/{{ tarea['id'] }}" method="get" class="task-form">
+                                <button type="submit" class="btn-delete">Eliminar</button>
+                            </form>
+                        </div>
+                    {% endif %}
+                </li>
+            {% else %}
+                <li class="empty-message">No hay tareas</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

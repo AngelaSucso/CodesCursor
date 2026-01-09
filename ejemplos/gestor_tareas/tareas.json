@@ -1,0 +1,20 @@
+{
+  "tareas": [
+    {
+      "id": 6,
+      "texto": "Comprar leche",
+      "completada": true
+    },
+    {
+      "id": 7,
+      "texto": "Comprar cereal",
+      "completada": true
+    },
+    {
+      "id": 8,
+      "texto": "Comprar carne",
+      "completada": false
+    }
+  ],
+  "proximo_id": 9
+}

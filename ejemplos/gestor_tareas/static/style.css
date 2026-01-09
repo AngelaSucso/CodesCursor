@@ -1,0 +1,248 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    color: #667eea;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Formulario */
+form {
+    margin-bottom: 30px;
+}
+
+.form-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+input[type="text"]:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Botones */
+button {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Lista de tareas */
+ul {
+    list-style: none;
+}
+
+li {
+    background: #f8f9fa;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    border-left: 4px solid #667eea;
+}
+
+li:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+/* Tareas completadas */
+li s {
+    color: #6c757d;
+    text-decoration: line-through;
+    font-style: italic;
+}
+
+/* Tareas incompletas */
+.task-text {
+    flex: 1;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Contenedor de acciones de tarea */
+.task-actions {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Formulario inline para acciones */
+.task-form {
+    display: inline;
+    margin-left: 5px;
+}
+
+.task-form button {
+    padding: 6px 12px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.task-form button:hover {
+    transform: translateY(-1px);
+}
+
+/* Botón completar */
+.btn-complete {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+.btn-complete:hover {
+    background: linear-gradient(135deg, #0d7a6f 0%, #2dd066 100%);
+}
+
+/* Botón editar */
+.btn-edit {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.btn-edit:hover {
+    background: linear-gradient(135deg, #e081ea 0%, #e0465a 100%);
+}
+
+/* Botón eliminar */
+.btn-delete {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.btn-delete:hover {
+    background: linear-gradient(135deg, #e85d8a 0%, #e6c930 100%);
+}
+
+/* Formulario de edición */
+.task-form-edit {
+    display: inline-flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.edit-input {
+    padding: 6px 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 13px;
+    width: 150px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.edit-input:focus {
+    border-color: #f5576c;
+    box-shadow: 0 0 0 2px rgba(245, 87, 108, 0.1);
+}
+
+/* Mensaje cuando no hay tareas */
+li.empty-message {
+    text-align: center;
+    color: #6c757d;
+    font-style: italic;
+    border-left: none;
+    background: #f8f9fa;
+    justify-content: center;
+}
+
+li.empty-message:hover {
+    transform: none;
+    background: #f8f9fa;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    .form-group {
+        flex-direction: column;
+    }
+    
+    button {
+        width: 100%;
+    }
+    
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .task-actions {
+        width: 100%;
+        margin-top: 10px;
+        justify-content: flex-start;
+    }
+    
+    .task-form-edit {
+        width: 100%;
+    }
+    
+    .edit-input {
+        width: 100%;
+        flex: 1;
+    }
+}
+
